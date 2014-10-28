@@ -8,3 +8,6 @@ _Prepare your .csv with no header columns with the 404 url in the first column a
 
 ```$ node app.js redirects.csv domaintostripfromredirects.com http://domaintousefortests.com```
 
+### Output TSV
+
+```statusCode    inURL    outURL    actualURL```
