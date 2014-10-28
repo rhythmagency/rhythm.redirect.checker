@@ -44,8 +44,9 @@ var transformer = transform(function(record, callback) {
         try {
             var response = wait.forMethod(request, "head", baseURL + urlA, {followRedirect: false});
 
-            console.log(baseURL + urlA);
             console.log(response.statusCode);
+            console.log(baseURL + urlA);
+            console.log('');
 
             line = response.statusCode+'\t'+line;
 
