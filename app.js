@@ -26,6 +26,7 @@ var parser = parse({delimiter: ','});
 fs.truncateSync(csvOutputFilename, 0);
 
 var output = fs.createWriteStream(csvOutputFilename);
+output.write('Response Code\tURL to Test\tSuggested Redirect\tApplied Redirect\n');
 
 var domainRegex = new RegExp('^'+domainToStrip, 'i');
 var httpRegex = new RegExp('^https?:\/\/[^\/]+\/', 'i');
