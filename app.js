@@ -4,15 +4,17 @@ var fs = require('fs-extra');
 var parse = require('csv-parse');
 var transform = require('stream-transform');
 
-if(process.argc < 4){
-    console.log('usage: node app.js redirects.csv https://domain.com');
+if(process.argc < 5){
+    console.log('usage: node app.js redirects.csv domainToStrip.com https://baseURL.com');
     process.exit();
 }
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var csvFilename = process.argv[2];
-var domainName = process.argv[3];
+var domainToStrip = process.argv[3];
+var baseURL = process.argv[4];
+
 var csvOutputFilename = 'out_' + csvFilename.split('.csv').join('.txt');
 
 var input = fs.createReadStream(csvFilename);
@@ -27,14 +29,16 @@ var transformer = transform(function(record, callback) {
     wait.launchFiber(function() {
         //console.log(record);
         var urlA = record[0].replace(/^https?:\/\/[^\/]+\//i, '/');
-        var urlB = record[1].replace(/^https?:\/\/[^\/]+\//i, '/').replace(/^smartstopselfstorage\.com/i, '').replace('//', '/');
+
+        var regex = new RegExp('^'+domainToStrip, 'i');
+        var urlB = record[1].replace(/^https?:\/\/[^\/]+\//i, '/').replace(regex, '').replace('//', '/');
         if (urlB == '')
             urlB = '/';
 
         var line = [urlA, urlB].join('\t') + '\n';
 
         try {
-            var response = wait.forMethod(request, "head", domainName + urlA, {followRedirect: false});
+            var response = wait.forMethod(request, "head", baseURL + urlA, {followRedirect: false});
             console.log(response.statusCode);
             if(response.statusCode >= 400) {
                 callback(null, line);
