@@ -3,11 +3,10 @@ var request = require('request');
 var fs = require('fs-extra');
 var parse = require('csv-parse');
 var transform = require('stream-transform');
-var url = require('url');
 var trim = require('trimmer');
 
 if(process.argc < 5){
-    console.log('usage: node app.js redirects.csv domainToStrip.com https://baseURL.com');
+    console.log('usage: checkredirects redirects.csv domainToStrip.com https://baseURL.com');
     process.exit();
 }
 

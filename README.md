@@ -1,4 +1,4 @@
-# rhythm.redirect.checker v0.1.0
+# rhythm.redirect.checker v0.1.1
 > Take a csv of 404 urls and corresponding redirect urls and check the server response then compile a new list of links that are still not 2XX or 3XX. Use it to check the results of your 301 redirects.
 
 ## Getting Started
@@ -6,7 +6,7 @@ _Prepare your .csv with no header columns with the 404 url in the first column a
 
 ### Usage
 
-```$ node app.js redirects.csv domaintostripfromredirects.com http://domaintousefortests.com```
+```$ checkredirects redirects.csv domaintostripfromredirects.com http://domaintousefortests.com```
 
 ### Output TSV
 
