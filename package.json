@@ -3,14 +3,6 @@
     "description": "Take a csv of 404 urls and corresponding redirect urls and check the server response then compile a new list of links that are still not 2XX or 3XX. Use it to check the results of your 301 redirects.",
     "version": "0.1.1",
     "author": "CJ Hanson <cj.hanson@rhythmagency.com>",
-    "contributors": [
-        {
-            "name": "CJ Hanson",
-            "email": "cj.hanson@rhythmagency.com"
-        }
-    ],
-    "homepage": "http://rhythmagency.com",
-    "bugs": "https://github.com/rhythmagency/rhythm.redirect.checker/issues",
     "repository": {
         "type": "git",
         "url": "git@github.com:rhythmagency/rhythm.redirect.checker.git"
@@ -29,10 +21,5 @@
         "trimmer": "^1.0.0",
         "url": "^0.10.1",
         "wait.for": "^0.6.6"
-    },
-    "keywords": [
-        "rhythm",
-        "redirect",
-        "301"
-    ]
+    }
 }
