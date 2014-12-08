@@ -6,7 +6,7 @@ _Prepare your .csv with no header columns with the 404 url in the first column a
 
 ### Usage
 
-```$ checkredirects redirects.csv domaintostripfromredirects.com http://domaintousefortests.com```
+```$ redirect-checker redirects.csv domaintostripfromredirects.com http://domaintousefortests.com```
 
 ### Output TSV
 

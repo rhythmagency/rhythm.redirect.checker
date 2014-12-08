@@ -6,7 +6,7 @@ var transform = require('stream-transform');
 var trim = require('trimmer');
 
 if(process.argc < 5){
-    console.log('usage: checkredirects redirects.csv domainToStrip.com https://baseURL.com');
+    console.log('usage: redirect-checker redirects.csv domainToStrip.com https://baseURL.com');
     process.exit();
 }
 
